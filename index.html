@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Veda Labs</title>
+    <style>
+        /* Standard Professional Theme Reset */
+        :root {
+            --primary-bg: #f8fafc;
+            --doc-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --heading-color: #0f172a;
+            --border-color: #e2e8f0;
+            --accent-color: #818cf8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Sticky Header Navigation */
+        .site-header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .site-header img {
+            height: 40px;
+            width: auto;
+        }
+
+        /* Language Toggle Button in Header */
+        .lang-btn {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--heading-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--text-muted);
+            background: var(--primary-bg);
+        }
+
+        .lang-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* Main Document Container (Full Page Scroll) */
+        .document-wrapper {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .document-content {
+            background: var(--doc-bg);
+            padding: 60px 80px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #f1f5f9;
+        }
+
+        /* Document Typography */
+        h1 {
+            font-size: 2.5rem;
+            color: var(--heading-color);
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-align: center;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--primary-bg);
+        }
+
+        h2 {
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--heading-color);
+            font-size: 1.15rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p { 
+            margin-bottom: 20px; 
+            text-align: justify; 
+            font-size: 1.05rem;
+        }
+        
+        ul, ol {
+            margin-bottom: 25px;
+            padding-left: 25px;
+            font-size: 1.05rem;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong { color: var(--heading-color); font-weight: 600; }
+
+        /* Custom Language Modal Layout */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            transform: scale(0.95) translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            border: none;
+            padding: 0;
+            font-size: 1.8rem;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover { color: var(--heading-color); }
+
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+            max-height: 50vh;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        /* Scrollbar for language grid */
+        .lang-grid::-webkit-scrollbar { width: 6px; }
+        .lang-grid::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
+        .lang-grid::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+        .lang-option {
+            background: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        .lang-option:hover {
+            background: #e0e7ff;
+            border-color: var(--accent-color);
+            color: #3730a3;
+            transform: translateY(-2px);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--heading-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1100;
+            opacity: 0;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Standard Footer */
+        .site-footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            border-top: 1px solid var(--border-color);
+            background: #ffffff;
+            margin-top: 40px;
+        }
+
+        .site-footer img {
+            height: 30px;
+            vertical-align: middle;
+            margin-left: 10px;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .document-content { padding: 40px 25px; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.3rem; }
+            h3 { font-size: 1.1rem; }
+            .modal-content { padding: 25px; width: 85%; }
+            .lang-grid { grid-template-columns: repeat(2, 1fr); }
+            .site-header { padding: 15px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Professional Sticky Header -->
+    <header class="site-header">
+        <img src="https://i.ibb.co/ym9YBc0D/Miracle-Tech-20260601-135624-0000.png" alt="Veda Labs Main Logo">
+        
+        <!-- Language Toggle Button -->
+        <button class="lang-btn" onclick="openLangModal()">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"></path>
+            </svg>
+            <span id="currentLang">English</span>
+        </button>
+    </header>
+
+    <!-- Custom Modal for Language Selection -->
+    <div class="modal-overlay" id="langModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Select Language</h2>
+                <button class="close-btn" onclick="closeLangModal()">&times;</button>
+            </div>
+            <div class="lang-grid">
+                <div class="lang-option" onclick="changeLanguage('English')">English</div>
+                <div class="lang-option" onclick="changeLanguage('Hindi (हिंदी)')">Hindi (हिंदी)</div>
+                <div class="lang-option" onclick="changeLanguage('Assamese (অসমীয়া)')">Assamese (অসমীয়া)</div>
+                <div class="lang-option" onclick="changeLanguage('Bengali (বাংলা)')">Bengali (বাংলা)</div>
+                <div class="lang-option" onclick="changeLanguage('Bodo (बड़ो)')">Bodo (बड़ो)</div>
+                <div class="lang-option" onclick="changeLanguage('Dogri (डोगरी)')">Dogri (डोगरी)</div>
+                <div class="lang-option" onclick="changeLanguage('Gujarati (ગુજરાતી)')">Gujarati (ગુજરાતી)</div>
+                <div class="lang-option" onclick="changeLanguage('Kannada (ಕನ್ನಡ)')">Kannada (ಕನ್ನಡ)</div>
+                <div class="lang-option" onclick="changeLanguage('Kashmiri (कॉशुर)')">Kashmiri (कॉशुर)</div>
+                <div class="lang-option" onclick="changeLanguage('Konkani (कोंकणी)')">Konkani (कोंकणी)</div>
+                <div class="lang-option" onclick="changeLanguage('Maithili (मैथिली)')">Maithili (मैथिली)</div>
+                <div class="lang-option" onclick="changeLanguage('Malayalam (മലയാളം)')">Malayalam (മലയാളം)</div>
+                <div class="lang-option" onclick="changeLanguage('Manipuri (মৈতৈলোন্)')">Manipuri (মৈতৈলোন্)</div>
+                <div class="lang-option" onclick="changeLanguage('Marathi (मराठी)')">Marathi (मराठी)</div>
+                <div class="lang-option" onclick="changeLanguage('Nepali (नेपाली)')">Nepali (नेपाली)</div>
+                <div class="lang-option" onclick="changeLanguage('Odia (ଓଡ଼ିଆ)')">Odia (ଓଡ଼ିଆ)</div>
+                <div class="lang-option" onclick="changeLanguage('Punjabi (ਪੰਜਾਬੀ)')">Punjabi (ਪੰਜਾਬੀ)</div>
+                <div class="lang-option" onclick="changeLanguage('Sanskrit (संस्कृतम्)')">Sanskrit (संस्कृतम्)</div>
+                <div class="lang-option" onclick="changeLanguage('Santali (ᱥᱟᱱᱛᱟᱲᱤ)')">Santali (ᱥᱟᱱᱛᱟᱲᱤ)</div>
+                <div class="lang-option" onclick="changeLanguage('Sindhi (سنڌي)')">Sindhi (سنڌي)</div>
+                <div class="lang-option" onclick="changeLanguage('Tamil (தமிழ்)')">Tamil (தமிழ்)</div>
+                <div class="lang-option" onclick="changeLanguage('Telugu (తెలుగు)')">Telugu (తెలుగు)</div>
+                <div class="lang-option" onclick="changeLanguage('Urdu (اردو)')">Urdu (اردو)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Component -->
+    <div class="toast" id="toastMessage">Language changed successfully.</div>
+
+    <!-- Standard Document Layout -->
+    <main class="document-wrapper">
+        <article class="document-content">
+            
+            <h1>Privacy Policy</h1>
+            <div class="last-updated">Effective Date: June 24, 2026</div>
+
+            <p>At <strong>Veda Labs</strong> ("Company", "we", "us", or "our"), we are deeply committed to protecting your privacy and safeguarding your personal information. This Privacy Policy outlines our practices regarding the collection, use, processing, and disclosure of information when you access or use our Unified AI Orchestration Engine, APIs, website, and related services (collectively, the "Services").</p>
+            
+            <p>By registering an account, utilizing our API, or otherwise accessing the Services, you acknowledge that you have read, understood, and agree to the practices described in this Privacy Policy. If you do not agree with this policy, please do not use our Services.</p>
+
+            <h2>1. Information We Collect</h2>
+            <p>We collect information directly from you, automatically through your use of our Services, and occasionally from third-party sources. The types of data we collect include:</p>
+            
+            <h3>1.1 Account & Registration Information</h3>
+            <p>When you create an account, we may collect your name, email address, company name, billing address, and payment information (processed securely via our third-party payment gateways like Stripe or Razorpay).</p>
+            
+            <h3>1.2 API & Telemetry Data (Automated)</h3>
+            <p>To ensure system stability, security, and performance, we automatically log specific telemetry data when you interact with our APIs. This includes:</p>
+            <ul>
+                <li>Your IP address and User-Agent.</li>
+                <li>Timestamps of API requests.</li>
+                <li>Latency metrics, request volume, and endpoint routing data.</li>
+                <li>API token identifiers (to enforce rate limits like our 40 RPM cap).</li>
+            </ul>
+
+            <h3>1.3 Content and Prompts (Ephemeral Data)</h3>
+            <p>We process the text prompts, images, audio, or video files you send to our API to generate an output. As outlined in Section 3, we treat this data as highly ephemeral and do not store it persistently for model training.</p>
+
+            <h2>2. How We Use Your Information</h2>
+            <p>Veda Labs uses the information we collect for the following legitimate business purposes:</p>
+            <ul>
+                <li><strong>Service Provisioning:</strong> To authenticate your API keys, process payments, and deliver the AI-generated outputs you request.</li>
+                <li><strong>Security & Abuse Prevention:</strong> To monitor for DDOS attacks, rate-limit bypassing, unauthorized key sharing, and violations of our Acceptable Use Policy.</li>
+                <li><strong>Communication:</strong> To send you technical notices, security alerts, SLA updates, and administrative messages.</li>
+                <li><strong>Legal Compliance:</strong> To comply with applicable laws, including the Digital Personal Data Protection Act (DPDP) of India and international equivalents.</li>
+            </ul>
+
+            <h2>3. AI Processing & Model Training (Zero-Retention Policy)</h2>
+            <p>A core pillar of Veda Labs' commitment to privacy is our zero-retention policy regarding user prompts and generated outputs.</p>
+            
+            <h3>3.1 No Training on User Data</h3>
+            <p><strong>We do not use your private prompts, uploaded files, or generated outputs to fine-tune or train our foundational AI models.</strong> Your proprietary data remains yours. The models deployed on our NVIDIA NIM infrastructure serve only to inference and generate your requested output.</p>
+            
+            <h3>3.2 Ephemeral Processing</h3>
+            <p>When a request is made, the input data exists in volatile memory (RAM) only for the duration required to generate the response. Once the response is delivered to your client application, the input data and generated artifacts are systematically purged from our active processing nodes.</p>
+
+            <h2>4. Information Sharing and Disclosure</h2>
+            <p>We do not sell your personal data to advertisers or third parties. We only share information under the following strict circumstances:</p>
+            
+            <h3>4.1 Cloud Infrastructure Partners</h3>
+            <p>To maintain our 99.9% uptime SLA and process multimodal requests rapidly, we rely on trusted cloud infrastructure providers (e.g., AWS, GCP, NVIDIA). These partners act as sub-processors and are bound by strict Data Processing Agreements (DPAs) that mirror our privacy commitments.</p>
+            
+            <h3>4.2 Legal & Regulatory Requirements</h3>
+            <p>We may disclose your information if required to do so by law, court order, or governmental request (such as a valid subpoena). We will attempt to notify you of such legal requests unless legally prohibited from doing so.</p>
+
+            <h2>5. Data Security</h2>
+            <p>Veda Labs implements enterprise-grade technical and organizational measures to protect your data against unauthorized access, alteration, or destruction. This includes:</p>
+            <ul>
+                <li>End-to-end encryption of data in transit using TLS 1.3.</li>
+                <li>Encryption of billing and account data at rest using AES-256.</li>
+                <li>Strict Access Control Lists (ACLs) and continuous security auditing of our internal systems.</li>
+            </ul>
+            <p>Despite these measures, no electronic transmission over the internet or information storage technology can be guaranteed to be 100% secure. You are responsible for safeguarding your API keys.</p>
+
+            <h2>6. Your Privacy Rights & Controls</h2>
+            <p>Depending on your jurisdiction (such as under the DPDP Act in India or GDPR in Europe), you have specific rights regarding your personal data:</p>
+            <ul>
+                <li><strong>Right to Access:</strong> You can request a copy of the personal data we hold about you.</li>
+                <li><strong>Right to Rectification:</strong> You can correct inaccurate or incomplete data via your developer dashboard.</li>
+                <li><strong>Right to Erasure (Right to be Forgotten):</strong> You can request the deletion of your account and associated personal data. Upon deletion, all billing info and API keys will be permanently purged.</li>
+                <li><strong>Right to Opt-Out:</strong> You may opt-out of non-essential marketing communications at any time.</li>
+            </ul>
+            <p>To exercise any of these rights, please contact our Data Protection Officer at <strong>privacy@vedalabs.ai</strong>. We will respond to your request within 30 days.</p>
+
+            <h2>7. Cookies and Tracking Technologies</h2>
+            <p>Our website and developer dashboard use essential cookies to maintain your session, remember your language preferences, and secure your login. We may also use anonymized analytics cookies to understand how developers navigate our documentation. You can control cookie preferences through your browser settings.</p>
+
+            <h2>8. International Data Transfers</h2>
+            <p>Veda Labs operates globally. Your personal information may be transferred to, and processed in, countries other than the country in which you reside. By using our Services, you consent to the transfer of your data to India and other jurisdictions where our secure infrastructure partners operate, safeguarded by standard contractual clauses.</p>
+
+            <h2>9. Children's Privacy</h2>
+            <p>Our API and Services are intended strictly for developers, enterprise clients, and individuals over the age of 18. We do not knowingly collect personal information from children under the age of 18. If we discover that we have inadvertently collected data from a child, we will delete it immediately.</p>
+
+            <h2>10. Changes to this Privacy Policy</h2>
+            <p>We may update this Privacy Policy periodically to reflect changes in our technology, legal obligations, or business practices. We will post the updated policy on this page with a revised "Effective Date." If the changes are highly material, we will notify active users via email or an alert in the developer dashboard.</p>
+
+            <h2>11. Contact Us</h2>
+            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data processing practices, please contact our Legal and Privacy Team:</p>
+            <p><strong>Email:</strong> privacy@vedalabs.ai<br>
+            <strong>Address:</strong> Legal Department, Veda Labs HQ, Bengaluru, Karnataka, India - 560001</p>
+            
+        </article>
+    </main>
+
+    <!-- Standard Site Footer -->
+    <footer class="site-footer">
+        <div>&copy; 2026 Veda Labs. All Rights Reserved. 
+            <img src="https://i.ibb.co/cKyJVj3c/Miracle-Tech-20260601-135537-0000.png" alt="Veda Labs Footer Logo">
+        </div>
+    </footer>
+
+    <script>
+        // Language Modal Logic
+        const modal = document.getElementById('langModal');
+        const currentLangText = document.getElementById('currentLang');
+        const toast = document.getElementById('toastMessage');
+
+        function openLangModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeLangModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeLanguage(langName) {
+            currentLangText.innerText = langName.split(' ')[0]; // Show only English name on button
+            closeLangModal();
+            showToast(`Display Language updated to ${langName}.`);
+            // In a real application, you would trigger translation fetching here.
+        }
+
+        function showToast(message) {
+            toast.innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Close modal if clicked outside of content
+        modal.addEventListener('click', function(e) {
+            if(e.target === modal) {
+                closeLangModal();
+            }
+        });
+    </script>
+</body>
+</html>
